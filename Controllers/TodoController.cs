@@ -46,7 +46,16 @@ public class TodoController : ControllerBase
         {
             return NotFound($"Todo with id {id} not found!");
         }
-        return Ok(updated);
+        return Ok(updated); // 200 Ok
+    }
+    [HttpDelete("{id}")]
+    public IActionResult DeleteTodo(int id)
+    {
+        var deleted = _todoService.DeleteTodo(id);
+        if (!deleted) {
+            return NotFound($"Todo with id {id} not found!");
+        }
+        return NoContent(); // 204 http
     }
 
     
