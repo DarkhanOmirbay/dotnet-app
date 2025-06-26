@@ -4,6 +4,8 @@ swagger:http://localhost:5000/swagger
 
 dotnet add package Swashbuckle.AspNetCore for install swagger lib
 
+dotnet add package DotNetEnv for .env
+
 # Run
 
 dotnet build

@@ -12,6 +12,12 @@ public class TodoController : ControllerBase
     {
         _todoService = todoService;
     }
+    [HttpGet]
+    public IActionResult GetAllTodos()
+    {
+        var todos = _todoService.GetAllTodos();
+        return Ok(todos);
+    }
     [HttpPost]
     public IActionResult CreateTodo([FromBody] CreateTodoDto dto)
     {
