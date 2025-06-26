@@ -44,5 +44,15 @@ public class TodoService : ITodoService
         }
         return todo;
     }
+    public bool DeleteTodo(int id)
+    {
+        var todo = _todos.FirstOrDefault(t => t.Id == id);
+        if (todo == null)
+        {
+            return false;
+        }
+        _todos.Remove(todo);
+        return true;
+    }
    
 }
