@@ -18,5 +18,9 @@ public class TodoService : ITodoService
         _todos.Add(todo);
         return todo;
     }
+    public TodoItem? GetTodoById(int id)
+    {
+        return _todos.FirstOrDefault(element => element.Id == id);
+    }
    
 }

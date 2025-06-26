@@ -18,10 +18,14 @@ public class TodoController : ControllerBase
         var created = _todoService.AddTodo(dto);
         return CreatedAtAction(nameof(GetTodoById), new { id = created.Id }, created);
     }
-    [HttpGet]
+    [HttpGet("{id}")]
     public IActionResult GetTodoById(int id)
     
     {
-        return Ok();
+        var todo = _todoService.GetTodoById(id);
+        if (todo == null)
+            return NotFound($"Todo with id {id} not found!");
+
+        return Ok(todo);
     }
 }
