@@ -20,7 +20,7 @@ public class TodoController : ControllerBase
     }
     [HttpGet("{id}")]
     public IActionResult GetTodoById(int id)
-    
+
     {
         var todo = _todoService.GetTodoById(id);
         if (todo == null)
@@ -28,4 +28,16 @@ public class TodoController : ControllerBase
 
         return Ok(todo);
     }
+    [HttpPut("{id}")]
+    public IActionResult UpdateTodo(int id, [FromBody] UpdateTodoDto dto)
+    {
+        var updated = _todoService.UpdateTodo(id, dto);
+        if (updated == null)
+        {
+            return NotFound($"Todo with id {id} not found!");
+        }
+        return Ok(updated);
+    }
+
+    
 }
