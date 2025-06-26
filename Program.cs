@@ -13,6 +13,9 @@ builder.Services.AddSwaggerGen(c =>
 });
 builder.Services.AddSingleton<ITodoService, TodoService>();
 
+// lowercase urls
+builder.Services.Configure<RouteOptions>(options => options.LowercaseUrls = true); 
+
 var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
