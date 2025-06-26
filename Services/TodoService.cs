@@ -22,5 +22,14 @@ public class TodoService : ITodoService
     {
         return _todos.FirstOrDefault(element => element.Id == id);
     }
+    public TodoItem? UpdateTodo(int id, UpdateTodoDto dto)
+    {
+        var todo = _todos.FirstOrDefault(t => t.Id == id);
+        if (todo == null) return null;
+
+        todo.Title = dto.title;
+        todo.IsCompleted = dto.IsCompleted;
+        return todo;
+    }
    
 }
