@@ -38,6 +38,16 @@ public class TodoController : ControllerBase
         }
         return Ok(updated);
     }
+    [HttpPatch("{id}")]
+    public IActionResult PatchIsCompleted(int id, [FromBody] PatchTodoDto dto)
+    {
+        var updated = _todoService.PatchTodoIsCompleted(id, dto);
+        if (updated == null)
+        {
+            return NotFound($"Todo with id {id} not found!");
+        }
+        return Ok(updated);
+    }
 
     
 }
