@@ -7,4 +7,5 @@ public interface ITodoService
     TodoItem? GetTodoById(int id);
     TodoItem? UpdateTodo(int id, UpdateTodoDto dto);
     TodoItem? PatchTodoIsCompleted(int id, PatchTodoDto dto);
+    bool DeleteTodo(int id);
 }
