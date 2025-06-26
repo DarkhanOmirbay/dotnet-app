@@ -31,5 +31,18 @@ public class TodoService : ITodoService
         todo.IsCompleted = dto.IsCompleted;
         return todo;
     }
+    public TodoItem? PatchTodoIsCompleted(int id, PatchTodoDto dto)
+    {
+        var todo = _todos.FirstOrDefault(t => t.Id == id); // lambda function t => t.id == id;
+        if (todo == null)
+        {
+            return null;
+        }
+        if (dto.IsCompleted.HasValue)
+        {
+            todo.IsCompleted = dto.IsCompleted.Value;
+        }
+        return todo;
+    }
    
 }
