@@ -12,7 +12,6 @@ dotnet run
 
 # Project structure
 
-
 MyApi/
 
 ├── Controllers/           # REST API контроллеры (например, TodoController)
@@ -52,3 +51,15 @@ MyApi/
 ├── obj/                   # Временные сборочные файлы (авто)
 
 ├── README.md              # Описание проекта (этот файл)
+
+# CRUD
+
+Add todo - post method
+
+Get todo by id - get method
+
+Update fully todo by id - put method
+
+Update todo partially for attr IsCompleted (true/false) - patch method
+
+Delete todo by id - delete method
